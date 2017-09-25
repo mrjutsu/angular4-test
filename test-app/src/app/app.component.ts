@@ -1,10 +1,32 @@
 import { Component } from '@angular/core';
 
+export class Hero {
+  id: number;
+  name: String;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  template: `
+    <h1>{{title}}</h1>
+    <h2>{{hero.name}} details!</h2>
+    <div>
+      <label>id: </label>
+      {{hero.id}}
+    </div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="hero.name" placeholder="Name">
+    </div>
+  `
 })
+
 export class AppComponent {
-  title = 'My New App';
+  title = 'Tour of Heroes';
+  hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  };
 }
